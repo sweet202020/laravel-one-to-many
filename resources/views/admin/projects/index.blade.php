@@ -30,6 +30,7 @@
                         <th>Description</th>
                         <th>Difficulty</th>
                         <th>Language</th>
+                        <th>Type</th>
                         <th>Actions</th>
 
                     </tr>
@@ -51,6 +52,7 @@
                         <td>{{$project->difficulty}}</td>
                         <td>{{$project->language}}</td>
 
+                        <td>{{$project->type ? $project->type->name : 'nessun type'}}</td>
 
                         <td class="d-flex flex-column gap-2">
                             <a href="{{route('admin.projects.show', $project->slug)}}" class="btn btn-primary view">

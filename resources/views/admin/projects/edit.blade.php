@@ -36,7 +36,21 @@
             <input type="text" name="language" id="language" class="form-control @error('language') is-invalid @enderror" placeholder="12.20" aria-describedby="languageHlper" value="{{$project->language}}">
             <small id="languageHlper" class="text-muted">Add the project language here</small>
         </div>
+        <div class="mb-3">
+            <label for="type_id" class="form-label">types</label>
+            <select class="form-select form-select-lg @error('type_id') 'is-invalid' @enderror" name="type_id" id="type_id">
+                <option value="">without type</option>
 
+                @forelse ($types as $type )
+                <option value="{{$type->id}}" {{ $type->id == old('type_id',  $project->type ? $project->type->id : '') ? 'selected' : '' }}>
+                    {{$type->name}}
+                </option>
+                @empty
+                <option value="">Nessun type selezionato</option>
+                @endforelse
+
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 
     </form>

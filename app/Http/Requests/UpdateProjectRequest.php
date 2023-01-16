@@ -34,7 +34,9 @@ class UpdateProjectRequest extends FormRequest
             'description' => 'required|max:500',
             'difficulty' => 'required|max:30',
             'language' => 'required|max:50',
-            'cover_image' => 'nullable|image|max:300'
+            'cover_image' => 'nullable|image|max:300',
+            'type_id' => 'nullable|exists:types,id'
+
 
         ];
     }

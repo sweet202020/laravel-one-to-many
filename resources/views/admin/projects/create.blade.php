@@ -28,8 +28,20 @@
             <label for="language" class="form-label">language</label>
             <input type="text" class="form-control" name="language" id="language" aria-describedby="helpId" placeholder="project's language">
         </div>
+        <div class="mb-3">
+            <label for="type_id" class="form-label">types</label>
+            <select class="form-select form-select-lg @error('type_id') 'is-invalid' @enderror" name="type_id" id="type_id">
+                <option selected>Select one</option>
 
-        <button type="submit" class="btn btn-primary text-uppercase">add new project</button>
+                @foreach ($types as $type )
+                <option value="{{$type->id}}" {{ old('type_id') ? 'selected' : '' }}>{{$type->name}}</option>
+                @endforeach
+
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary text-uppercase">add new project</button>
     </div>
 </form>
 @endsection

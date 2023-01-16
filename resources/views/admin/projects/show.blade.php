@@ -20,6 +20,9 @@
                 <div>
                     language:{{$project->language}}
                 </div>
+                <div class="type">
+                    type:{{$project->type ? $project->type->name : 'without type'}}
+                </div>
             </div>
 
         </div>
